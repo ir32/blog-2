@@ -21,5 +21,8 @@ use App\Http\Controllers\Api\Auth\RegisterController;
 use App\Http\Controllers\Api\Auth\LoginController;
 
 Route::post('/register', [RegisterController::class, 'register']);
+Route::post('/register_seller', [RegisterController::class, 'seller_register']);
+
+Route::get('/all_seller', [RegisterController::class, 'all_seller']);
 
 Route::post('/login', [LoginController::class, 'login']);
