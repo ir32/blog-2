@@ -22,9 +22,12 @@ class RegisterController extends Controller
             return response()->json(['error' => $validator->errors()], 422);
         }
 
-        event(new Registered($user = $this->create($request->all())));
+        $user = $this->create($request->all());
 
-        return response()->json(['user' => $user, 'message' => 'User registered successfully']);
+        $token = $user->createToken('Laravel9PassportAuth')->accessToken;
+
+        return response()->json(['user' => $user, 'token' => $token, 'message' => 'User registered successfully']);
+
     }
 
     protected function create(array $data)
