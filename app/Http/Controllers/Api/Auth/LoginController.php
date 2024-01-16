@@ -26,7 +26,12 @@ class LoginController extends Controller
             // Generate token for the authenticated user
             $token = $user->createToken('Laravel9PassportAuth')->accessToken;
 
-            return response()->json(['user' => $user, 'access_token' => $token, 'message' => 'Login successful']);
+            return response()->json(['user' => [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'roles' => $user->role,
+            ], 'access_token' => $token, 'message' => 'Login successful']);
         }
 
         return response()->json(['error' => 'Unauthorized'], 401);

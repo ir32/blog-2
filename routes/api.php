@@ -8,7 +8,7 @@ Route::middleware('auth:sanctum')->get('/user', function () {
 });
 
 //Route::apiResource('products', ProductController::class);
-Route::get('/products', [ProductController::class, 'index']);
+// Route::get('/products', [ProductController::class, 'index']);
 Route::post('/products', [ProductController::class, 'store']);
 Route::get('/products/{id}', [ProductController::class, 'show']);
 Route::put('/products/{id}', [ProductController::class, 'update']);
@@ -26,3 +26,7 @@ Route::post('/register_seller', [RegisterController::class, 'seller_register']);
 Route::get('/all_seller', [RegisterController::class, 'all_seller']);
 
 Route::post('/login', [LoginController::class, 'login']);
+
+Route::middleware(['auth.api'])->group(function () {
+    Route::get('/products', [ProductController::class, 'index']);
+});
