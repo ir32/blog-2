@@ -17,3 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+use App\Http\Controllers\SellerController;
+Route::get('/sellers', [SellerController::class, 'getSellers']);
