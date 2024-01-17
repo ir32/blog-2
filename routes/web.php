@@ -20,3 +20,8 @@ Route::get('/', function () {
 
 use App\Http\Controllers\SellerController;
 Route::get('/sellers', [SellerController::class, 'getSellers']);
+use App\Http\Controllers\ProductController;
+
+//Route::resource('products', ProductController::class);
+
+

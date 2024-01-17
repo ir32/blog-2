@@ -9,12 +9,12 @@ Route::middleware('auth:sanctum')->get('/user', function () {
 
 //Route::apiResource('products', ProductController::class);
 // Route::get('/products', [ProductController::class, 'index']);
-//Route::post('/products', [ProductController::class, 'store']);
-Route::get('/products/{id}', [ProductController::class, 'show']);
-Route::put('/products/{id}', [ProductController::class, 'update']);
-Route::delete('/products/{id}', [ProductController::class, 'destroy']);
+// //Route::post('/products', [ProductController::class, 'store']);
+// Route::get('/products/{id}', [ProductController::class, 'show']);
+// Route::put('/products/{id}', [ProductController::class, 'update']);
+// Route::delete('/products/{id}', [ProductController::class, 'destroy']);
 
-Route::post('/products', [ProductController::class, 'create']);
+// Route::post('/products', [ProductController::class, 'create']);
 
 
 use App\Http\Controllers\Api\Auth\RegisterController;
@@ -29,5 +29,6 @@ Route::get('/all_seller', [RegisterController::class, 'all_seller']);
 Route::post('/login', [LoginController::class, 'login']);
 
 Route::middleware(['auth.api'])->group(function () {
-    Route::get('/products', [ProductController::class, 'index']);
+    Route::resource('products', ProductController::class);
+    Route::post('/products', [ProductController::class, 'create']);
 });
