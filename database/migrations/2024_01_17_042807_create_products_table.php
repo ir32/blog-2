@@ -17,18 +17,23 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('product_name');
             $table->text('product_desc');
-            $table->text('brands');
+            $table->timestamps();
+        });
+
+        Schema::create('brands', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('product_id')->constrained();
+            $table->string('brand_name');
+            $table->text('brand_detail');
+            $table->string('brand_image');
+            $table->decimal('price', 8, 2);
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
+        Schema::dropIfExists('brands');
         Schema::dropIfExists('products');
     }
 }
