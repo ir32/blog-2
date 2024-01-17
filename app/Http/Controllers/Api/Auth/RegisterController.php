@@ -60,7 +60,7 @@ class RegisterController extends Controller
 
         $user = $this->createSeller($request->all());
 
-        return response()->json(['user' => $user, 'message' => 'Seller registered successfully']);
+        return response()->json(['status' => 200,'user' => $user, 'message' => 'Seller registered successfully']);
     }
 
     protected function createSeller(array $data) {

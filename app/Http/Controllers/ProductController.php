@@ -14,7 +14,7 @@ class ProductController extends Controller
     {
         $products = Product::with('brands')->get();
 
-        return response()->json(['products' => $products]);
+        return response()->json(['status' => 200, 'products' => $products]);
         //return view('sellers.indexpro', ['products' => $products]);
 
     }
@@ -45,7 +45,7 @@ class ProductController extends Controller
             ]);
         }
 
-        return response()->json(['message' => 'Product and brands created successfully']);
+        return response()->json(['message' => 'Product and brands created successfully', 'status' => 201]);
     }
     
     public function update(Request $request, Product $product)

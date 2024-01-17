@@ -24,4 +24,4 @@ use App\Http\Controllers\ProductController;
 
 //Route::resource('products', ProductController::class);
 
-
+//http://localhost/blog-2/public/sellers

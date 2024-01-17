@@ -31,7 +31,7 @@ class LoginController extends Controller
                 'name' => $user->name,
                 'email' => $user->email,
                 'roles' => $user->role,
-            ], 'access_token' => $token, 'message' => 'Login successful']);
+            ], 'access_token' => $token, 'message' => 'Login successful','status' => 200]);
         }
 
         return response()->json(['error' => 'Unauthorized'], 401);
