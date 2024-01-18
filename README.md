@@ -9,7 +9,12 @@
 
 ##  Laravel API
 
-Laravel is a web application framework , Api is design for login , rigistation ,middelware, product add with multiple brandwith image ,fetch all product.
+Laravel is a web application framework , Api is design for login , rigistation ,middelware, product add with multiple brandwith image ,fetch all product. 
+
+## Database, And Postman Collection Is present in side project
+
+![image](https://github.com/ir32/blog-2/assets/47362140/3032f915-e4e1-4a1f-a5db-f716d99029b7)
+
 
 ## License
 
