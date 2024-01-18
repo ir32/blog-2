@@ -81,7 +81,7 @@ class RegisterController extends Controller
     public function all_seller(Request $request) { 
         $sellers = User::where('role', 'seller')->get();
 
-        return response()->json(['sellers' => $sellers], 200);
+        return response()->json(['status' => 200, 'sellers' => $sellers], 200);
     }
 
 

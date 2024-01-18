@@ -31,6 +31,7 @@
                     <ul>
                         @foreach($product->brands as $brand)
                             <li>{{ $brand->brand_name }}</li>
+                            <li><img src="{{ asset('' . $brand->brand_image) }}" class="img-thumbnail" width="75" /></li>
                         @endforeach
                     </ul>
                 </td>

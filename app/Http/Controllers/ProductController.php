@@ -29,35 +29,6 @@ class ProductController extends Controller
 
     public function create(Request $request)
     {
-        // $validator = Validator::make($request->all(), [
-        //     'product_name' => 'required|string|max:255',
-        //     'product_desc' => 'required|string',
-        //     'brands' => 'required|array',
-        //     'brands.*.brand_name' => 'required|string|max:255',
-        //     'brands.*.brand_detail' => 'required|string',
-        //     'brands.*.price' => 'required|numeric',
-        // ]);
-    
-        // if ($validator->fails()) {
-        //     return response()->json(['error' => $validator->errors()], 400);
-        // }    
-        // $data = json_decode($request->getContent(), true);
-        // $product = Product::create([
-        //     'product_name' => $data['product_name'],
-        //     'product_desc' => $data['product_desc'],
-        // ]);
-    
-        // foreach ($data['brands'] as $brandData) {
-        //     Brand::create([
-        //         'product_id'    => $product->id,
-        //         'brand_name'    => $brandData['brand_name'],
-        //         'brand_detail'  => $brandData['brand_detail'],
-        //         'brand_image'   => $brandData['brand_image'],
-        //         'price'         => $brandData['price'],
-        //     ]);
-        // }
-        
-        // return response()->json(['message' => 'Product and brands created successfully', 'status' => 201]);
         $validator = Validator::make($request->all(), [
             'product_name' => 'required|string|max:255',
             'product_desc' => 'required|string',
@@ -65,7 +36,7 @@ class ProductController extends Controller
             'brands.*.brand_name' => 'required|string|max:255',
             'brands.*.brand_detail' => 'required|string',
             'brands.*.price' => 'required|numeric',
-            'brands.*.brand_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Assuming you are uploading image files
+            'brands.*.brand_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
     
         if ($validator->fails()) {
@@ -97,15 +68,14 @@ class ProductController extends Controller
     
     }
 
-    private function uploadImage($image)
-{
-    $uploadPath = 'images';
-    $newName = rand() . '.' . $image->getClientOriginalExtension();
+    private function uploadImage($image) {
+        $uploadPath = 'images';
+        $newName = rand() . '.' . $image->getClientOriginalExtension();
 
-    $image->move(public_path($uploadPath), $newName);
+        $image->move(public_path($uploadPath), $newName);
 
-    return $uploadPath . '/' . $newName;
-}
+        return $uploadPath . '/' . $newName;
+    }
     
     public function update(Request $request, Product $product)
     {

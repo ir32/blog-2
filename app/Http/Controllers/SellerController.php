@@ -10,9 +10,7 @@ class SellerController extends Controller
 {
     public function getSellers()
     {
-        $sellers = User::where('role', 'seller')->paginate(10); // Change 10 to your desired number of items per page
-
-        // Pass the sellers to a view
+        $sellers = User::where('role', 'seller')->paginate(10); 
         return view('sellers.index', ['sellers' => $sellers]);
     }
 }

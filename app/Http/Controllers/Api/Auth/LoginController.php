@@ -34,6 +34,6 @@ class LoginController extends Controller
             ], 'access_token' => $token, 'message' => 'Login successful','status' => 200]);
         }
 
-        return response()->json(['error' => 'Unauthorized'], 401);
+        return response()->json(['error' => 'Invalid credentials', 'status' => 401], 401);
     }
 }
