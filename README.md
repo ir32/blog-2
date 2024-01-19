@@ -11,7 +11,7 @@
 
 Laravel is a web application framework , Api is design for login , rigistation ,middelware, product add with multiple brandwith image ,fetch all product. 
 
-# Functionality Like Registation, Logine ,Middelware,Session,Routing, Multiple upload images, data delete from two table from primery key & foreign key
+## Functionality Like Registation, Logine ,Middelware,Session,Routing, Multiple upload images, data delete from two table from primery key & foreign key
  
 
 ## Database, And Postman Collection Is present in side project
